@@ -1,17 +1,61 @@
 package com.projectcrud.services;
 
+import com.projectcrud.dao.BookDao;
 import com.projectcrud.model.Book;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-public interface BookService {
-    void addBook(Book book);
+@Service
+public class BookService {
+    @Autowired
+    private BookDao bookDao;
 
-    void updateBook(Book book);
+    public List<Book> findAll(){
+       return bookDao.findAll();
+    }
 
-    void removeBook(int id);
+    public void addBook(Book book) {
+        bookDao.save(book);
+    }
 
-    Book getBookById(int id);
+    public void removeBook(int id) {
+        bookDao.deleteById(id);
+    }
 
-    List<Book> listBooks();
+    public Book findById(int id) {
+        return bookDao.findById(id).get();
+    }
+
+
+//    @Override
+//    @Transactional
+//    public void addBook(Book book) {
+//        bookDao.addBook(book);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void updateBook(Book book) {
+//        bookDao.updateBook(book);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public void removeBook(int id) {
+//        bookDao.removeBook(id);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public Book getBookById(int id) {
+//        return bookDao.getBookById(id);
+//    }
+//
+//    @Override
+//    @Transactional
+//    public List<Book> listBooks() {
+//        return bookDao.listBooks();
+//    }
 }
