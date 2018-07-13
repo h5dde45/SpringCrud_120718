@@ -12,8 +12,8 @@ public class BookService {
     @Autowired
     private BookDao bookDao;
 
-    public List<Book> findAll(){
-       return bookDao.findAll();
+    public List<Book> findAll() {
+        return bookDao.findAll();
     }
 
     public void addBook(Book book) {
@@ -27,35 +27,4 @@ public class BookService {
     public Book findById(int id) {
         return bookDao.findById(id).get();
     }
-
-
-//    @Override
-//    @Transactional
-//    public void addBook(Book book) {
-//        bookDao.addBook(book);
-//    }
-//
-//    @Override
-//    @Transactional
-//    public void updateBook(Book book) {
-//        bookDao.updateBook(book);
-//    }
-//
-//    @Override
-//    @Transactional
-//    public void removeBook(int id) {
-//        bookDao.removeBook(id);
-//    }
-//
-//    @Override
-//    @Transactional
-//    public Book getBookById(int id) {
-//        return bookDao.getBookById(id);
-//    }
-//
-//    @Override
-//    @Transactional
-//    public List<Book> listBooks() {
-//        return bookDao.listBooks();
-//    }
 }

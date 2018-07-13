@@ -41,14 +41,10 @@ public class BookController {
         return "bookList";
     }
 
-    @GetMapping("/bookData/{id}")
-    public String bookdata(@PathVariable("id") int id,
+    @GetMapping("/bookdata/{id}")
+    public String bookData(@PathVariable("id") int id,
                            Model model){
         model.addAttribute("book", bookService.findById(id));
         return "bookData";
     }
-
-
-
-
 }
